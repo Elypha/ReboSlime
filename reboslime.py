@@ -45,8 +45,8 @@ def exception_close_callback(self: rebocap_ws_sdk.RebocapWsSdk):
     try:
         sdk.close()
         init_rebocap_ws()
-    except:
-        print("exception_close_callback")
+    except Exception as e:
+        print(f"exception_close_callback: {e}")
 
 
 def init_rebocap_ws():
