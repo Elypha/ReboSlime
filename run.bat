@@ -1,1 +1,1 @@
-poetry run python .\reboslime.py
+uv run reboslime.py
