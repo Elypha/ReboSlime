@@ -1,14 +1,18 @@
-import json
-import socket
-import time
-import struct
+# import json
 import signal
-from libs.inputimeout import inputimeout, TimeoutOccurred
-from libs.rebocap import rebocap_ws_sdk
+import socket
+import struct
+import time
+from pathlib import Path
+
+import tomlkit
 from rich.console import Console
 
+from libs.inputimeout import TimeoutOccurred, inputimeout
+from libs.rebocap import rebocap_ws_sdk
 
-CONFIG = json.load(open("config.json"))
+# CONFIG = json.load(open("config.json"))
+CONFIG = tomlkit.loads(Path("config.toml").read_bytes())
 VERSION = CONFIG["version"]
 REBOCAP_COUNT = 8
 SLIME_IP = CONFIG["slime_ip"]  # SlimeVR Server
